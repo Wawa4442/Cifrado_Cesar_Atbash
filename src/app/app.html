@@ -1,9 +1,11 @@
 <div class="main-container">
+  <!-- 1.1 Header -->
   <header>
     <h1>Cifrador y Descrifrador: Cesar & Atbash</h1>
     <p>Proyecto para Ciberseguridad</p>
   </header>
 
+  <!-- 1.2 Preset Buttons. -->
   <section class="preset-buttons">
     <button (click)="setAbecedario()">Abecedario</button>
     <button (click)="setNumeros()">Números</button>
@@ -11,6 +13,7 @@
     <button (click)="setComboCompleto()">Combo Completo</button>
   </section>
 
+  <!-- 1.3 Text Area “alfabeto” y Modulo a elegir. -->
   <section class="config-panel">
     <h3>Configuración</h3>
     
@@ -34,6 +37,7 @@
     </div>
   </section>
 
+  <!-- 1.4 Cifrado. -->
   <main class="crypto-grid">
     <div class="card">
       <h3>CIFRAR</h3>
@@ -41,6 +45,7 @@
       <button (click)="ejecutarCifrado()" class="btn-encrypt">Cifrar ↓</button>
     </div>
 
+    <!-- 1.5 Descifrado -->
     <div class="card">
       <h3>DESCIFRAR</h3>
       <textarea [(ngModel)]="textoDescifrar" placeholder="Escribe aquí para descifrar..."></textarea>
@@ -48,6 +53,7 @@
     </div>
   </main>
 
+  <!-- 1.6 Resultado -->
   <div class="result-card" *ngIf="resultado">
     <h3>Resultado:</h3>
     <div class="box">{{ resultado }}</div>

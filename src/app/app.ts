@@ -10,31 +10,33 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
 export class App {
-  // Variables de Control
+  
+  // 2.1 Variables de Control
   alfabetoBase: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   moduloSeleccionado: string = 'cesar';
   desplazamiento: number = 3;
 
-  // Variables de Texto (IMPORTANTE: Estas deben estar en el HTML)
+  // 2.2 Variables de Texto
   textoCifrar: string = '';
   textoDescifrar: string = '';
   resultado: string = '';
 
-  // Conjuntos base
+  // 2.3 Conjuntos Básicos
   private letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   private numeros = "0123456789";
   private especiales = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
-  // Botones de carga rápida
+  // 2.4 Botones de Carga Rápida del Alfabeto
   setAbecedario() { this.alfabetoBase = this.letras; }
   setNumeros() { this.alfabetoBase = this.numeros; }
   setEspeciales() { this.alfabetoBase = this.especiales; }
   setComboCompleto() { this.alfabetoBase = this.especiales + this.letras + this.numeros; }
 
-  // LÓGICA DE EJECUCIÓN
+  // 2.5 Función de Cifrado
   ejecutarCifrado() {
-    console.log("Cifrando:", this.textoCifrar); // Para que veas en consola que sí entra
+    console.log("Cifrando:", this.textoCifrar); 
     if (this.moduloSeleccionado === 'cesar') {
       this.resultado = this.motorCesar(this.textoCifrar, this.desplazamiento);
     } else {
@@ -42,6 +44,7 @@ export class App {
     }
   }
 
+  // 2.6 Descifrado
   ejecutarDescifrado() {
     console.log("Descifrando:", this.textoDescifrar);
     if (this.moduloSeleccionado === 'cesar') {
@@ -51,7 +54,7 @@ export class App {
     }
   }
 
-  // MOTORES MATEMÁTICOS
+  // 2.7 Motor Matematico Cesar
   private motorCesar(texto: string, shift: number): string {
     if (!texto) return '';
     let salida = "";
@@ -69,6 +72,8 @@ export class App {
     return salida;
   }
 
+
+  // 2.8 Motor Atbash
   private motorAtbash(texto: string): string {
     if (!texto) return '';
     let salida = "";
@@ -84,6 +89,8 @@ export class App {
     return salida;
   }
 
+
+  // 2.9 Copiar Resultado
   copiarResultado() {
     navigator.clipboard.writeText(this.resultado);
     alert('¡Copiado!');
